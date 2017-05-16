@@ -140,6 +140,11 @@ static id styling;
     UIView *v = [vc view];
     [v addSubview:toast];
 
+    // Increased zPosition of toast view as it was blocked by the Other View
+    // zPosition of OpenTokView = 1
+    // zPosition of Webview = 10
+    toast.layer.zPosition = 100;
+
     NSNumber * opacity = styling[@"opacity"];
     CGFloat theOpacity = opacity == nil ? CSToastOpacity : [opacity floatValue];
 
